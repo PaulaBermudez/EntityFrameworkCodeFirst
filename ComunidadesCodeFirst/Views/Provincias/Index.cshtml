@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ComunidadesCodeFirst.Models.Provincia>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>LISTADO DE PROVINCIAS</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>COMUNIDAD</th>
+        <th>PROVINCIA</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.comunidad.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdProvincia }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdProvincia }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdProvincia })
+        </td>
+    </tr>
+}
+
+</table>
